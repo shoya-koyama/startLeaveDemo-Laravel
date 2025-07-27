@@ -4,14 +4,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AttendanceController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
-Route::get('/', [AttendanceController::class, 'start'])->name('attendance.start');
-Route::post('/', [AttendanceController::class, 'start']); // POSTメソッドでも利用可能にする場合
+Route::get('/attendance', [AttendanceController::class, 'start'])->name('attendance.start');
+Route::post('/attendance', [AttendanceController::class, 'start'])->name('attendance.start');
+Route::post('/attendance/leave', [AttendanceController::class, 'leave'])->name('attendance.leave');
 // Route::middleware(['auth'])->group(function () {
 //     Route::get('/arrive', [AttendanceController::class, 'arrive'])->name('arrive');
 //     Route::get('/leave', [AttendanceController::class, 'leave'])->name('leave');
 // });
-// Auth::routes();
+Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

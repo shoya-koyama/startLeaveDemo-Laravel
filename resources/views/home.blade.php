@@ -15,6 +15,15 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    {{-- ↓ ここから追加 ↓ --}}
+                    <div class="mt-4">
+                        <form method="POST" action="{{ route('attendance.start') }}">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">出勤</button>
+                        </form>
+                    </div>
+                    {{-- ↑ ここまで追加 ↑ --}}
                 </div>
             </div>
         </div>

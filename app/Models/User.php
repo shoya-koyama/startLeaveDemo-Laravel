@@ -42,4 +42,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // ユーザーの出勤履歴リレーションを追加
+    public function attendances()
+    {
+        return $this->hasMany(Attendance::class);
+    }
 }

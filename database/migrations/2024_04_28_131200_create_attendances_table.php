@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->default(0); // デフォルト値を設定
             $table->timestamp('started_at');
+            $table->timestamp('leaved_at')->nullable(); // 退勤日時を追加
             $table->timestamps();
         });
     }
